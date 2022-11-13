@@ -46,3 +46,5 @@ Run below command for qemu arm:
          qemu-system-arm -M versatilepb -nographic -bios u-boot.bin -kernel ../../linux.git/arch/arm/boot/zImage -dtb ../../linux.git/arch/arm/boot/dts/versatile-pb.dtb -initrd rootfs.cpio.gz -nographic -display none -append "root=/dev/mem"
 
 https://www.codingame.com/playgrounds/84444/running-u-boot-linux-kernel-in-qemu/preparing-bootable-linux-kernel-storage-media
+virtual disk:
+qemu-system-arm -machine virt -nographic -bios u-boot.bin -device usb-ehci,id=ehci -blockdev driver=file,filename=./disk.img,node-name=disk -device virtio-blk-device,drive=disk
